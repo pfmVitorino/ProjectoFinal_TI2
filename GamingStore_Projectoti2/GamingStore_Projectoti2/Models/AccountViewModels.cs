@@ -79,7 +79,29 @@ namespace GamingStore_Projectoti2.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        
+        public string Nome { get; set; }
+
+        [Required]
+        public string NIF { get; set; }
+
+
+        
+        public string Morada { get; set; }
+
+        
+        [Display(Name = "Código Postal")]
+        public string CodPostal { get; set; }
+
+
+
     }
+
+
+
+
+
 
     public class ResetPasswordViewModel
     {
