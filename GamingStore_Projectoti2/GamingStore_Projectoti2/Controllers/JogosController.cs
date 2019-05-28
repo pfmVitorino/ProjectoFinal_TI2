@@ -105,7 +105,8 @@ namespace GamingStore_Projectoti2.Controllers
                 {
                     // o ficheiro fornecido nao é válido 
                     // atributo por defeito ao jogo
-                    jogos.Fotografia = "no-user.jpg";
+                    return RedirectToAction("Index");
+                   // jogos.Fotografia = "no-user.jpg";
                 }
             }
 
