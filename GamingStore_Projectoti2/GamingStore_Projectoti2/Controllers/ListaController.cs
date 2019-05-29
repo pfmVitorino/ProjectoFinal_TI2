@@ -14,11 +14,23 @@ namespace GamingStore_Projectoti2.Controllers
     {
         private JogosDB db = new JogosDB();
 
+
         // GET: Lista
-        public ActionResult Index()
+        public ActionResult Index(string SearchBy, string search)
         {
-            return View(db.Jogos.ToList());
+            // filtar os jogos pelo seu nome e pela sua plataforma
+            if (SearchBy == "Plataforma")
+
+
+                return View(db.Jogos.Where(x => x.Plataforma == search || search == null).ToList());
+            else
+                return View(db.Jogos.Where(x => x.Nome.StartsWith(search) || search == null).ToList());
+
         }
+          
+        
+    
+        
 
         // GET: Lista/Details/5
         public ActionResult Details(int? id)

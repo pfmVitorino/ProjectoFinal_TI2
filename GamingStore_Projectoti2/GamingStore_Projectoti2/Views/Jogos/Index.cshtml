@@ -7,9 +7,24 @@
 <center>
     <h2>Lista de Jogos</h2>
 </center>
-<p>
-    @Html.ActionLink("Adicionar novo jogo", "Create",null, new { @class = "btn btn-primary" })
-</p>
+
+@using (Html.BeginForm("Index", "Jogos", FormMethod.Get))
+{
+
+    <b> Pesquisa por...</b>
+
+    @Html.RadioButton("SearchBy", "Jogo", true) <text>Nome</text>
+    @Html.RadioButton("SearchBy", "Plataforma") <text>Plataforma</text>
+
+
+    <br />
+    @Html.TextBox("search")<input type="submit" value="Pesquisa" />
+}
+     <br><br />
+       <p>
+       @Html.ActionLink("Adicionar novo jogo", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+       
 @* Displayname-> nome do conteudo *@
 @foreach (var item in Model)
 {

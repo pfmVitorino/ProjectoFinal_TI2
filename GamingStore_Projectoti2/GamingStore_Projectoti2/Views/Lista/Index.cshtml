@@ -7,6 +7,25 @@
 <center>
     <h2>Lista de Jogos</h2>
 </center>
+
+
+@using (Html.BeginForm("Index", "Lista", FormMethod.Get))
+{
+
+    <b> Pesquisa por...</b>
+
+    @Html.RadioButton("SearchBy", "Jogo", true) <text>Nome</text>
+    @Html.RadioButton("SearchBy", "Plataforma") <text>Plataforma</text>
+
+
+    <br />
+    @Html.TextBox("search")<input type="submit" value="Pesquisa" />
+}
+
+
+
+
+
 <table class="table">
     <tr>
         <th>

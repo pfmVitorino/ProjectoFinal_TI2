@@ -218,6 +218,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Fotografias\call.jpg" />
     <Content Include="Fotografias\fifa.jpg" />
+    <Content Include="Fotografias\fundo.jpg" />
+    <Content Include="Fotografias\fundo2.jpg" />
+    <Content Include="Fotografias\fundo3.jpg" />
     <Content Include="Fotografias\game.jpg" />
     <Content Include="Fotografias\hit.jpg" />
     <Content Include="Fotografias\red.png" />
