@@ -83,8 +83,8 @@ namespace GamingStore_Projectoti2.Models
         
         public string Nome { get; set; }
 
-        [Required]
-        public string NIF { get; set; }
+       
+        public int NIF { get; set; }
 
 
         

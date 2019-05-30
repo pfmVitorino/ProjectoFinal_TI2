@@ -86,6 +86,11 @@ namespace GamingStore_Projectoti2
             }
             return manager;
         }
+
+        internal Task CreateAsync(ApplicationUser user, string password, string codPostal, string email, string nome, string morada)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     // Configure the application sign-in manager which is used in this application.

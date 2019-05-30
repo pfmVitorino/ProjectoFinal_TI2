@@ -14,7 +14,12 @@ namespace GamingStore_Projectoti2.Controllers
     {
         private JogosDB db = new JogosDB();
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="SearchBy"></param>
+        /// <param name="search"></param>
+        /// <returns></returns>
         // GET: Lista
         public ActionResult Index(string SearchBy, string search)
         {
@@ -31,7 +36,11 @@ namespace GamingStore_Projectoti2.Controllers
         
     
         
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Lista/Details/5
         public ActionResult Details(int? id)
         {

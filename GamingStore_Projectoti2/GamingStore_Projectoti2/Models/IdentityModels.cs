@@ -9,6 +9,11 @@ namespace GamingStore_Projectoti2.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string Nome { get; internal set; }
+        public int NIF { get; internal set; }
+        public string Morada { get; internal set; }
+        public string CodPostal { get; internal set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

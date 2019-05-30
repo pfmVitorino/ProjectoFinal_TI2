@@ -16,10 +16,11 @@ namespace GamingStore_Projectoti2.Controllers
         private JogosDB db = new JogosDB();
 
         // GET: Jogos
-        public ActionResult Index(string SearchBy, string search) { 
+        public ActionResult Index(string SearchBy, string search)
+        {
 
 
-       // filtar os jogos pelo seu nome e pela sua plataforma
+            // filtar os jogo pelo seu nome e pela sua plataforma
             if (SearchBy == "Plataforma")
 
 
@@ -28,8 +29,13 @@ namespace GamingStore_Projectoti2.Controllers
                 return View(db.Jogos.Where(x => x.Nome.StartsWith(search) || search == null).ToList());
 
         }
-    // GET: Jogos/Details/5
-    public ActionResult Details(int? id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // GET: Jogos/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -43,25 +49,33 @@ namespace GamingStore_Projectoti2.Controllers
             Session["Metodo"] = "";
             return View(jogos);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         // GET: Jogos/Create
         public ActionResult Create()
         {
             ViewBag.Plataformas = db.Plataformas;
             return View();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jogos"></param>
+        /// <param name="uploadFotografia"></param>
+        /// <returns></returns>
         // POST: Jogos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nome,Preco,Plataforma")] Jogos jogos, HttpPostedFileBase uploadFotografia)
+        public ActionResult Create([Bind(Include = "Nome,Preco,Plataforma")] Jogos jogo, HttpPostedFileBase uploadFotografia)
         {
 
             //Escreve a fotografia que foi carregada - O save é efetuado na pasta das imagens do disco rigido
             //Especificar id do jogo
-            //testar se há registos na tabela dos jogos
+            //testar se há registos na tabela dos jogo
 
             // vars aux
 
@@ -86,6 +100,7 @@ namespace GamingStore_Projectoti2.Controllers
 
                 string mimeType = uploadFotografia.ContentType;
                 if (mimeType == "image/jpeg" || mimeType == "image/png")
+
                 {
                     // o ficheiro é do tipo correto
 
@@ -99,7 +114,7 @@ namespace GamingStore_Projectoti2.Controllers
                     // onde guardar o ficheiro?
                     caminho = Path.Combine(Server.MapPath("~/fotografias/"), nomeFicheiro);
                     /// 4º como o associar ao novo Jogo?
-                    jogos.Fotografia = nomeFicheiro;
+                    jogo.Fotografia = nomeFicheiro;
 
                     // marcar o ficheiro como válido
                     ficheiroValido = true;
@@ -113,7 +128,7 @@ namespace GamingStore_Projectoti2.Controllers
                     // o ficheiro fornecido nao é válido 
                     // atributo por defeito ao jogo
                     return RedirectToAction("Index");
-                   // jogos.Fotografia = "no-user.jpg";
+                    // jogo.Fotografia = "no-user.jpg";
                 }
             }
 
@@ -125,7 +140,7 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 try
                 {
-                    db.Jogos.Add(jogos);
+                    db.Jogos.Add(jogo);
                     db.SaveChanges();
 
 
@@ -146,12 +161,16 @@ namespace GamingStore_Projectoti2.Controllers
 
             }
 
-            return View(jogos);
+            return View(jogo);
 
 
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Jogos/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -167,24 +186,83 @@ namespace GamingStore_Projectoti2.Controllers
             ViewBag.Plataformas = db.Plataformas;
             return View(jogos);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jogos"></param>
+        /// <returns></returns>
         // POST: Jogos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Preco,Fotografia,Plataforma")] Jogos jogos)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Preco,Fotografia,Plataforma")] Jogos jogo, HttpPostedFileBase uploadFotografia)
         {
-            if (ModelState.IsValid)
+            string caminho = "";
+          
+
+
+            if (uploadFotografia == null)
             {
-                db.Entry(jogos).State = EntityState.Modified;
-                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-            ViewBag.Plataformas = db.Plataformas;
-            return View(jogos);
-        }
+            else
+            {
+                db.Entry(jogo).State = EntityState.Modified;
+                string mimeType = uploadFotografia.ContentType;
+                if (mimeType == "image/jpeg" || mimeType == "image/png")
 
+                {
+                    // o ficheiro é do tipo correto
+
+                    /// 3º qual o nome que devo dar ao ficheiro?
+                    Guid g;
+                    g = Guid.NewGuid(); // obtem os dados para o nome do ficheiro
+                    // e qual a extensão do ficheiro?
+                    string extensao = Path.GetExtension(uploadFotografia.FileName).ToLower();
+                    // montar novo nome
+                    string nomeFicheiro = g.ToString() + extensao;
+                    // onde guardar o ficheiro?
+                    caminho = Path.Combine(Server.MapPath("~/fotografias/"), nomeFicheiro);
+                    /// 4º como o associar ao novo Jogo?
+                    jogo.Fotografia = nomeFicheiro;
+
+
+
+
+
+                }
+                else
+                {
+                    // o ficheiro fornecido nao é válido 
+                    // atributo por defeito ao jogo
+                    return RedirectToAction("Index");
+                    // jogo.Fotografia = "no-user.jpg";
+                }
+            }
+
+
+            if (ModelState.IsValid)
+            {
+
+                uploadFotografia.SaveAs(caminho);
+                db.Entry(jogo).State = EntityState.Modified;
+                  
+                   db.SaveChanges();
+                ViewBag.Plataformas = db.Plataformas;
+                return View(jogo);
+
+            }
+            ViewBag.Plataformas = db.Plataformas;
+            return View(jogo);
+        }  
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Jogos/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -202,7 +280,11 @@ namespace GamingStore_Projectoti2.Controllers
             ViewBag.Plataformas = db.Plataformas;
             return View(jogos);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: Jogos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
