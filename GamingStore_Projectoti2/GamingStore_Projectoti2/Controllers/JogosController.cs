@@ -41,13 +41,13 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Jogos jogos = db.Jogos.Find(id);
-            if (jogos == null)
+            Jogos jogo = db.Jogos.Find(id);
+            if (jogo == null)
             {
                 return RedirectToAction("Index");
             }
             Session["Metodo"] = "";
-            return View(jogos);
+            return View(jogo);
         }
         /// <summary>
         /// 
@@ -178,13 +178,13 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Jogos jogos = db.Jogos.Find(id);
-            if (jogos == null)
+            Jogos jogo = db.Jogos.Find(id);
+            if (jogo == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             ViewBag.Plataformas = db.Plataformas;
-            return View(jogos);
+            return View(jogo);
         }
         /// <summary>
         /// 

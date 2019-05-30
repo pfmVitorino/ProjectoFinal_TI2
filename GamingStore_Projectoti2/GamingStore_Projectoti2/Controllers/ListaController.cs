@@ -23,7 +23,7 @@ namespace GamingStore_Projectoti2.Controllers
         // GET: Lista
         public ActionResult Index(string SearchBy, string search)
         {
-            // filtar os jogos pelo seu nome e pela sua plataforma
+            // filtar os jogo pelo seu nome e pela sua plataforma
             if (SearchBy == "Plataforma")
 
 
@@ -48,13 +48,13 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Jogos jogos = db.Jogos.Find(id);
-            if (jogos == null)
+            Jogos jogo = db.Jogos.Find(id);
+            if (jogo == null)
             {
                 return RedirectToAction("Index");
             }
             Session["Metodo"] = "";
-            return View(jogos);
+            return View(jogo);
         }
 
 

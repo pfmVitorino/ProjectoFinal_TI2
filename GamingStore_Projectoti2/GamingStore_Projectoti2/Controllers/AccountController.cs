@@ -78,6 +78,14 @@ namespace GamingStore_Projectoti2.Controllers
 
                 return RedirectToAction("index", "Jogos");
 
+            }// só o admin pode adcionar, remover ou apagar clientes
+            if (model.Email == "admin@ipt.pt" && model.Password == "adminipt")
+            {
+
+                Session["Metodo"] = "";
+
+                return RedirectToAction("index", "Clientes");
+
             }
             if (!ModelState.IsValid)
             {

@@ -34,5 +34,7 @@ namespace GamingStore_Projectoti2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<GamingStore_Projectoti2.Models.Clientes> Clientes { get; set; }
     }
 }

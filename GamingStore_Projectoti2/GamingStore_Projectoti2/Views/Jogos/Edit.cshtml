@@ -22,16 +22,7 @@
          alt="imagem do jogo @Html.DisplayFor(model => model.Nome)"
          title="@Html.DisplayFor(model => model.Nome)"
          width="150" />
-    <div class="form-group">
-        @Html.LabelFor(model => model.Fotografia, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @* Adição do objeto para fazer o file upload de uma fotografia sss*@
-            @*Html.EditorFor(model => model.Fotografia, new { htmlAttributes = new { @class = "form-control" } })*@
-            <input type="file" name="uploadFotografia" style="color:blue" accept=".jpg" />
-            @*Html.TextBoxFor(model => model.Fotografia, new { type = "file", @class = "form-control" })*@
-            @Html.ValidationMessageFor(model => model.Fotografia, "", new { @class = "text-danger" })
-        </div>
-    </div>
+
     <div class="form-group">
         @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -50,8 +41,18 @@
         @Html.LabelFor(model => model.Plataforma, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.Plataforma, new SelectList(ViewBag.Plataformas, "Nome", "Nome"),
-                                                                   "Escolha a Plataforma", new { @class = "form-control" })
+                                                                        "Escolha a Plataforma", new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Plataforma, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Fotografia, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @* Adição do objeto para fazer o file upload de uma fotografia sss*@
+            @*Html.EditorFor(model => model.Fotografia, new { htmlAttributes = new { @class = "form-control" } })*@
+            <input type="file" name="uploadFotografia" style="color:blue" accept=".jpg" />
+            @*Html.TextBoxFor(model => model.Fotografia, new { type = "file", @class = "form-control" })*@
+            @Html.ValidationMessageFor(model => model.Fotografia, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
