@@ -69,24 +69,8 @@ namespace GamingStore_Projectoti2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            // só este gestor é que tem acesso para edtirar, criar ,eliminar jogos da loja
-            // se pretender criar mais gestores será aqui....
-            if (model.Email == "Gestor@ipt.pt" && model.Password == "123")
-            {
-
-                Session["Metodo"] = "";
-
-                return RedirectToAction("index", "Jogos");
-
-            }// só o admin pode adcionar, remover ou apagar clientes
-            if (model.Email == "admin@ipt.pt" && model.Password == "adminipt")
-            {
-
-                Session["Metodo"] = "";
-
-                return RedirectToAction("index", "Clientes");
-
-            }
+           
+          
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -98,7 +82,8 @@ namespace GamingStore_Projectoti2.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Jogos");
+             
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

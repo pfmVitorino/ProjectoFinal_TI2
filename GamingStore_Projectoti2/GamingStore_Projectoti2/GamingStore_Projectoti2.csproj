@@ -223,6 +223,7 @@
     <Content Include="Fotografias\fundo3.jpg" />
     <Content Include="Fotografias\game.jpg" />
     <Content Include="Fotografias\hit.jpg" />
+    <Content Include="Fotografias\papel.jpg" />
     <Content Include="Fotografias\red.png" />
     <Content Include="Fotografias\res.jpg" />
     <Content Include="Global.asax" />
@@ -289,6 +290,7 @@
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Lista\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

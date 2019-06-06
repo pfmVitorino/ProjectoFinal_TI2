@@ -11,6 +11,7 @@ using GamingStore_Projectoti2.Models;
 
 namespace GamingStore_Projectoti2.Controllers
 {
+    [Authorize(Roles = "Gestor")] // apenas os gestores têm acesso a esta página
     public class JogosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

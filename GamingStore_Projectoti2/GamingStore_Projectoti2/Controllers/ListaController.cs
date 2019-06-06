@@ -10,6 +10,7 @@ using GamingStore_Projectoti2.Models;
 
 namespace GamingStore_Projectoti2.Controllers
 {
+  
     public class ListaController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -42,6 +43,7 @@ namespace GamingStore_Projectoti2.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         // GET: Lista/Details/5
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -59,6 +61,27 @@ namespace GamingStore_Projectoti2.Controllers
 
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // GET: Lista/buy/5
+        [Authorize(Roles = "Cliente")] // apenas os clientes têm acesso a esta página
+        public ActionResult Buy(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Jogos jogo = db.Jogos.Find(id);
+            if (jogo == null)
+            {
+                return RedirectToAction("Index");
+            }
+            Session["Metodo"] = "";
+            return View(jogo);
+        }
 
 
 
