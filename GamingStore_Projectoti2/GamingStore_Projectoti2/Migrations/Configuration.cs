@@ -7,14 +7,14 @@ namespace GamingStore_Projectoti2.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<GamingStore_Projectoti2.Models.JogosDB>
+    internal sealed class Configuration : DbMigrationsConfiguration<GamingStore_Projectoti2.Models.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(GamingStore_Projectoti2.Models.JogosDB context)
+        protected override void Seed(GamingStore_Projectoti2.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

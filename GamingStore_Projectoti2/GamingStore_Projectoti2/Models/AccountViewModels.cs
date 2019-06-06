@@ -81,18 +81,7 @@ namespace GamingStore_Projectoti2.Models
         public string ConfirmPassword { get; set; }
 
         
-        public string Nome { get; set; }
-
        
-        public int NIF { get; set; }
-
-
-        
-        public string Morada { get; set; }
-
-        
-        [Display(Name = "Código Postal")]
-        public string CodPostal { get; set; }
 
 
 

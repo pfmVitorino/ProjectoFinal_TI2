@@ -13,7 +13,7 @@ namespace GamingStore_Projectoti2.Controllers
 {
     public class JogosController : Controller
     {
-        private JogosDB db = new JogosDB();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Jogos
         public ActionResult Index(string SearchBy, string search)

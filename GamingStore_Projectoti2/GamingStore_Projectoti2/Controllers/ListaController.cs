@@ -12,7 +12,7 @@ namespace GamingStore_Projectoti2.Controllers
 {
     public class ListaController : Controller
     {
-        private JogosDB db = new JogosDB();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         /// <summary>
         /// 

@@ -9,7 +9,6 @@ namespace GamingStore_Projectoti2.Models
 {
     public class Compras
     {
-
         [Key]
         public int Id { get; set; }
 

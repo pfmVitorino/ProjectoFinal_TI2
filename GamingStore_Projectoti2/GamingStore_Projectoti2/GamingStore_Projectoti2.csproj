@@ -205,7 +205,6 @@
     <Compile Include="Models\Detalhes_Compra.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Jogos.cs" />
-    <Compile Include="Models\JogosDB.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Plataformas.cs" />
     <Compile Include="Models\Plataforma_Jogos.cs" />

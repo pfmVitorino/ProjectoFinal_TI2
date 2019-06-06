@@ -17,7 +17,7 @@ namespace GamingStore_Projectoti2.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private JogosDB db = new JogosDB();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -172,10 +172,7 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email,
                                                  Email = model.Email,
-                                                 Nome = model.Nome,
-                                                 NIF = model.NIF,
-                                                 Morada = model.Morada,
-                                                 CodPostal = model.CodPostal,
+                                               
 
 
 
