@@ -21,7 +21,8 @@ namespace GamingStore_Projectoti2.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+
+       [Required]
         public string Nome { get; set; }
 
         [Required]

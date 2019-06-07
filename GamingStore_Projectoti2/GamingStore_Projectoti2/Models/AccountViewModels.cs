@@ -64,10 +64,29 @@ namespace GamingStore_Projectoti2.Models
 
     public class RegisterViewModel
     {
+      
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "O Nome é de preenchimento obrigatório.")]
+        [StringLength(50, ErrorMessage = "O {0} deve ter, no máximo, {1} caracteres.")]
+        [RegularExpression("[A-ZÁÉÍÓÚ][a-záéíóúàèìòùäëïöüãõâêîôûçñ]+(( | e | de | do | dos | da | das |-|')[A-ZÁÉÍÓÚ][a-záéíóúàèìòùäëïöüãõâêîôûçñ]+)*",
+        ErrorMessage = "O {0} só pode conter letras. Cada palavra deve começar com uma Maiúscula.")]
+        public string Nome { get; set; }
+
+        [Required]
+        [Display(Name = "Morada")]
+        public string Morada { get; set; }
+
+        [Required]
+        public string NIF { get; set; }
+
+        [Required]
+        [Display(Name = "Código Postal")]
+        public string CodPostal { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

@@ -157,6 +157,10 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email,
                                                  Email = model.Email,
+                                                 Nome = model.Nome,
+                                                 Morada = model.Morada,
+                                                 NIF = model.NIF,
+                                                 CodPostal = model.CodPostal
                                                
 
 
