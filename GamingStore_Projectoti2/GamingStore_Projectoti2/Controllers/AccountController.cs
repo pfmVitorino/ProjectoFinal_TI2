@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GamingStore_Projectoti2.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GamingStore_Projectoti2.Controllers
 {
@@ -153,24 +154,42 @@ namespace GamingStore_Projectoti2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            using (var context = new ApplicationDbContext())
+
+                if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email,
-                                                 Email = model.Email,
-                                                 Nome = model.Nome,
-                                                 Morada = model.Morada,
-                                                 NIF = model.NIF,
-                                                 CodPostal = model.CodPostal
-                                               
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Nome = model.Nome,
+                    Morada = model.Morada,
+                    NIF = model.NIF,
+                    CodPostal = model.CodPostal
+
 
 
 
 
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                    /// Adicionr o novo cliente á bd
+                    /// Esse novo cliente passar a ter a role de 'Cliente'
+                    
+
+                var roleStore = new RoleStore<IdentityRole>( context );
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+                var userStore = new UserStore<ApplicationUser>(context);
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                userManager.AddToRole(user.Id, "Cliente");
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                   
+                   
+
+                    
+                await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -186,6 +205,8 @@ namespace GamingStore_Projectoti2.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+       
 
         //
         // GET: /Account/ConfirmEmail

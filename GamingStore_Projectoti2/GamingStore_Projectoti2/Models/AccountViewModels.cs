@@ -99,8 +99,10 @@ namespace GamingStore_Projectoti2.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        
-       
+        //******************************************************************
+        // adicionar a este viewmodel a hipótese de recolher dados de um Cliente
+        public Clientes Cliente { get; set; }
+
 
 
 
