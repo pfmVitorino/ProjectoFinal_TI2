@@ -4,38 +4,33 @@
 
 <header class="masthead mb-auto" style="margin-bottom:10px !important;">
 
-    
-        <style type="text/css">
-            body {
-                background-image: url('/Fotografias/papel.jpg');
-                margin: 0;
-            }
-        </style>
-    
+
+    <style type="text/css">
+        body {
+            background-image: url('/Fotografias/papel.jpg');
+            margin: 0;
+        }
+    </style>
+
     <div class="inner">
 
 
         <center>
 
             <h5 style="font-size: 40px">GAMING STORE</h5>
-
-
-
-
-            <img src="/Fotografias/game.jpg" / height ="350">
         </center>
-
         <section id="buttonForm">
 
-            <table>
+            <table style="float:left" border="1">
+
                 <tr>
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
 
                         <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="submit" class="btn btn-danger" value="Login">
+
+                            <input type="submit" style="width: 100px; height: 50px" class="btn btn-danger" value="Login">
                         </td>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -48,12 +43,19 @@
 
 
                         <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="submit" class="btn btn-primary" value="Registar">
+
+                            <input type="submit" style="width: 100px; height: 50px" class="btn btn-primary" value="Registar">
                         </td>
                         @Html.ValidationSummary(true, "", new { @class = "text-primary" })
 
                     }
+                </tr>
+
+
+
+                <tr>
+
+
 
                     @using (Html.BeginForm("Index", "Lista", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline", role = "form" }))
                     {
@@ -61,18 +63,8 @@
 
 
                         <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                            <input type="submit" class="btn btn-success" value="Jogos Disponíveis">
+                            <input type="submit" style="width: 100px; height: 50px" class="btn btn-success" value="Jogos">
                         </td>
                         @Html.ValidationSummary(true, "", new { @class = "text-sucess" })
 
@@ -80,8 +72,16 @@
 
                 </tr>
             </table>
-
         </section>
+
+
+
+
+        <center>
+            <img src="/Fotografias/game.jpg" / height ="480" align ="middle"" >
+        </center>
+
+
 
     </div>
 </header>
