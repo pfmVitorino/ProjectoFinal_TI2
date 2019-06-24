@@ -41,5 +41,18 @@
 </div>
 <p>
     @Html.ActionLink("Regressar ao Início", "Index", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Comprar Jogo", "Index", null, new { @class = "btn btn-success" })
+    @using (Html.BeginForm("Create", "Detalhes_Compra", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+
+
+        <input align="left" type="submit" class="btn btn-primary" value="Comprar Jogo">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-primary" })
+
+    }
+
+    @Html.ActionLink("Comprar Jogo", "Create", "Detalhes_Compra", new { @class = "btn btn-success" })
 </p>

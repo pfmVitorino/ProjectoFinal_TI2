@@ -23,6 +23,7 @@ namespace GamingStore_Projectoti2.Controllers
         public AccountController()
         {
         }
+       
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
@@ -83,7 +84,27 @@ namespace GamingStore_Projectoti2.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Index", "Jogos");
+                    
+                    {
+                        // caso a pessoa que se autentique seja um cliente, irá ser redirecionada para a página inicial
+                        // caso seja o gestor, irá ser redirecionado para a página de CRUD dos jogos.
+                        if (User.IsInRole("Cliente"))
+                            return RedirectToAction("Index", "Home");
+
+                      
+                          else if (User.IsInRole("Gestor"))
+
+                            return RedirectToAction("Index", "Jogos");
+                        else if (User.IsInRole("Admin"))
+
+                            return RedirectToAction("Index", "ApplicationUsers");
+
+                        else
+                            return RedirectToAction("Index", "Jogos");
+
+                      
+
+                    }
              
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -173,7 +194,7 @@ namespace GamingStore_Projectoti2.Controllers
 
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                    /// Adicionr o novo cliente á bd
+                    /// Adicionar o novo cliente á bd
                     /// Esse novo cliente passar a ter a role de 'Cliente'
                     
 

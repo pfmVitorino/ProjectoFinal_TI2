@@ -190,7 +190,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\Detalhes_CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogosController.cs" />
     <Compile Include="Controllers\ListaController.cs" />
@@ -284,12 +286,20 @@
     <Content Include="Views\Jogos\Index.cshtml" />
     <Content Include="Views\Lista\Details.cshtml" />
     <Content Include="Views\Lista\Index.cshtml" />
+    <Content Include="Views\Lista\Buy.cshtml" />
+    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
+    <Content Include="Views\ApplicationUsers\Details.cshtml" />
+    <Content Include="Views\ApplicationUsers\Index.cshtml" />
+    <Content Include="Views\Detalhes_Compra\Create.cshtml" />
+    <Content Include="Views\Detalhes_Compra\Delete.cshtml" />
+    <Content Include="Views\Detalhes_Compra\Details.cshtml" />
+    <Content Include="Views\Detalhes_Compra\Edit.cshtml" />
+    <Content Include="Views\Detalhes_Compra\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
     <Content Include="Views\Clientes\Delete.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
-    <Content Include="Views\Lista\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

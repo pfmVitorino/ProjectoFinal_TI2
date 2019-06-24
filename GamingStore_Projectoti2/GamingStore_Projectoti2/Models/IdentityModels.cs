@@ -37,6 +37,7 @@ namespace GamingStore_Projectoti2.Models
         public ApplicationDbContext()
             : base("JogosDB", throwIfV1Schema: false)
         {
+            
         }
 
 
@@ -47,6 +48,7 @@ namespace GamingStore_Projectoti2.Models
 
         // representa a Base de Dados
         // descrever todas as tabelas
+      
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Jogos> Jogos { get; set; }
         public DbSet<Plataformas> Plataformas { get; set; }
@@ -55,11 +57,14 @@ namespace GamingStore_Projectoti2.Models
         public DbSet<Detalhes_Compra> Detalhes_Compra { get; set; }
 
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             base.OnModelCreating(modelBuilder);
         }
+
+       
     }
 }

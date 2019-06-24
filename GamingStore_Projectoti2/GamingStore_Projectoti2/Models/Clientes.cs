@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace GamingStore_Projectoti2.Models
 {
-    public class Clientes
+    public class Clientes 
     {
         // vai representar os dados da tabela dos Clientes
 
@@ -41,6 +42,6 @@ namespace GamingStore_Projectoti2.Models
         // Um  Cliente  pode comprar 1 ou mais Jogos
         public ICollection<Compras> ListaDeCompras { get; set; }
 
-
+      
     }
 }

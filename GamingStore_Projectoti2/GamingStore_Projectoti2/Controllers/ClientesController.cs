@@ -10,7 +10,6 @@ using GamingStore_Projectoti2.Models;
 
 namespace GamingStore_Projectoti2.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class ClientesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
