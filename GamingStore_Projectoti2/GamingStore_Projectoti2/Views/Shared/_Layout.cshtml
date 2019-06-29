@@ -7,26 +7,45 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+
+    <style>
+        .navbar-fixed-top.navbar-nav.nav-link {
+            color: black;
+        }
+    </style>
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: black">
+            <div class="container">
 
 
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Página Inicial", "Index", "Home")</li>
+                <ul class="nav navbar-nav" >
+                    <li class="nav-link" >@Html.ActionLink("Página Inicial", "Index", "Home") </li>
 
 
 
-                <li> @Html.ActionLink("Registar", "Register", "Account")</li>
-                <li> @Html.ActionLink("Log in", "Login", "Account")</li>
+                    <li class="nav-link"> @Html.ActionLink("Registar", "Register", "Account")</li>
+                    <li class="nav-link"> @Html.ActionLink("Log in", "Login", "Account")</li>
 
 
-                <!--Apenas Clientes podem ter acesso ao carrinho  -->
-                @if (User.IsInRole("Cliente"))
-    {
-            <li><a href="#shop"><span class="glyphicon glyphicon-shopping-cart">Carrinho</span></a></li>
-}
-            </ul>
+                    <!--Apenas Clientes podem ter acesso ao carrinho  -->
+                    @if (User.IsInRole("Cliente"))
+                {
+                    <li><a href="#shop"><span class="glyphicon glyphicon-shopping-cart">Carrinho</span></a></li>
+            }
+                    <!--Apenas o Admin pode ter acesso a esta página  -->
+                    @if (User.IsInRole("Admin"))
+                {
+                    <li> @Html.ActionLink("Administração", "Index", "ApplicationUsers")</li>
+            }
+
+                    <!--Apenas o Gestor pode ter acesso a esta página  -->
+                    @if (User.IsInRole("Gestor"))
+                {
+                    <li> @Html.ActionLink("Gestão", "Index", "Jogos")</li>
+            }
+                    
+                </ul>
                 <div class="navbar-collapse collapse">
 
 
@@ -51,5 +70,5 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
-    </body>
+</body>
         </html>

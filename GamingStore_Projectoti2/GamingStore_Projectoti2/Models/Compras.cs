@@ -18,9 +18,9 @@ namespace GamingStore_Projectoti2.Models
         [Required]
         public decimal Preco { get; set; }
 
-        public int ClientesFK { get; set; }
+        public string ClientesFK { get; set; }
         [ForeignKey("ClientesFK")]
-        public virtual Clientes Clientes { get; set; }
+        public virtual ApplicationUser Clientes { get; set; }
 
 
 

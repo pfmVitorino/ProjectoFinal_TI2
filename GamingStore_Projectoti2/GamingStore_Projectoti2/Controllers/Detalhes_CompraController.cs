@@ -10,6 +10,7 @@ using GamingStore_Projectoti2.Models;
 
 namespace GamingStore_Projectoti2.Controllers
 {
+    [Authorize(Roles = "Cliente")] // apenas clientes têm acesso a esta página
     public class Detalhes_CompraController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,6 +18,8 @@ namespace GamingStore_Projectoti2.Controllers
         // GET: Detalhes_Compra
         public ActionResult Index()
         {
+           
+
             var detalhes_Compra = db.Detalhes_Compra.Include(d => d.Compras).Include(d => d.Jogos).Include(d => d.Plataformas);
             return View(detalhes_Compra.ToList());
         }
@@ -39,6 +42,8 @@ namespace GamingStore_Projectoti2.Controllers
         // GET: Detalhes_Compra/Create
         public ActionResult Create()
         {
+
+           
             ViewBag.ComprasFK = new SelectList(db.Compras, "Id", "Id");
             ViewBag.JogosFK = new SelectList(db.Jogos, "Id", "Nome");
             ViewBag.PlataformasFK = new SelectList(db.Plataformas, "Id", "Nome");
@@ -48,10 +53,17 @@ namespace GamingStore_Projectoti2.Controllers
         // POST: Detalhes_Compra/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Aqui vai ser feita uma compra onde o cliente vai escolher a quantidade de jogos que pretende comprar
+        /// após clicar em 'comprar jogo' irá aprecer a view correspondente a este controller
+        /// </summary>
+        /// <param name="detalhes_Compra"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Quantidade,Preco,PlataformasFK,JogosFK,ComprasFK")] Detalhes_Compra detalhes_Compra)
         {
+
             if (ModelState.IsValid)
             {
                 db.Detalhes_Compra.Add(detalhes_Compra);
@@ -75,7 +87,7 @@ namespace GamingStore_Projectoti2.Controllers
             Detalhes_Compra detalhes_Compra = db.Detalhes_Compra.Find(id);
             if (detalhes_Compra == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
             ViewBag.ComprasFK = new SelectList(db.Compras, "Id", "Id", detalhes_Compra.ComprasFK);
             ViewBag.JogosFK = new SelectList(db.Jogos, "Id", "Nome", detalhes_Compra.JogosFK);

@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GamingStore_Projectoti2.Controllers
 {
-    [Authorize(Roles = "Admin")] // apenas o Admin têm acesso a esta página
+    [Authorize(Roles = "Admin")] // apenas o Admin tem acesso a esta página
     public class ApplicationUsersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

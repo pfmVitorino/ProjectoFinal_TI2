@@ -7,18 +7,16 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Comprar mais", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Compras.Id)
-        </th>
+      
         <th>
             @Html.DisplayNameFor(model => model.Jogos.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Plataformas.Nome)
+            @Html.DisplayNameFor(model => model.Plataformas)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Quantidade)
@@ -31,9 +29,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Compras.Id)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.Jogos.Nome)
         </td>
@@ -44,12 +40,13 @@
             @Html.DisplayFor(modelItem => item.Quantidade)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Preco)
+            @Html.DisplayFor(modelItem => item.Preco)€
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+
+            @Html.ActionLink("Confirmar Compra", "Index", "Compras", null, new { @class = "btn btn-success" })
+
+            @Html.ActionLink("Cancelar Compra", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

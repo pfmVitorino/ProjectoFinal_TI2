@@ -86,21 +86,13 @@ namespace GamingStore_Projectoti2.Controllers
                 case SignInStatus.Success:
                     
                     {
-                        // caso a pessoa que se autentique seja um cliente, irá ser redirecionada para a página inicial
-                        // caso seja o gestor, irá ser redirecionado para a página de CRUD dos jogos.
-                        if (User.IsInRole("Cliente"))
+                       
+                        // após login, o cliente é redirecconado para a página principal
+                        if (User.IsInRole("Cliente")) { 
                             return RedirectToAction("Index", "Home");
 
-                      
-                          else if (User.IsInRole("Gestor"))
-
-                            return RedirectToAction("Index", "Jogos");
-                        else if (User.IsInRole("Admin"))
-
-                            return RedirectToAction("Index", "ApplicationUsers");
-
-                        else
-                            return RedirectToAction("Index", "Jogos");
+                             }
+                            return RedirectToAction("Index", "Home");
 
                       
 

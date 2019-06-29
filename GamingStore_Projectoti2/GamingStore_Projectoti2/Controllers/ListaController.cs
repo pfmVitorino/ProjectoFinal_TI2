@@ -55,6 +55,11 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 return RedirectToAction("Index");
             }
+            //ViewBag.ComprasFK = new SelectList(db.Compras, "Id", "Id", jogo.Id);
+            //ViewBag.JogosFK = new SelectList(db.Jogos, "Id", "Nome",jogo.Nome);
+            //ViewBag.PlataformasFK = new SelectList(db.Plataformas, "Id", "Nome", jogo.Plataforma);
+          
+
             Session["Metodo"] = "";
             return View(jogo);
         }
@@ -79,6 +84,11 @@ namespace GamingStore_Projectoti2.Controllers
             {
                 return RedirectToAction("Index");
             }
+
+            //ViewBag.ComprasFK = new SelectList(db.Compras, "Id", "Id", jogo.Id);
+            //ViewBag.JogosFK = new SelectList(db.Jogos, "Id", "Nome",jogo.Nome);
+            //ViewBag.PlataformasFK = new SelectList(db.Plataformas, "Id", "Nome", jogo.Plataforma);
+          
             Session["Metodo"] = "";
             return View(jogo);
         }

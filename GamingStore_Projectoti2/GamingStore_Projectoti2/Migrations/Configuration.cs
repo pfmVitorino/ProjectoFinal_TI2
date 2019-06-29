@@ -42,7 +42,17 @@ namespace GamingStore_Projectoti2.Migrations
               new Jogos  {Id=3, Nome = "Fifa 19", Plataforma ="PS4",Fotografia="fifa.jpg", Preco= 60},
               new Jogos  {Id=4, Nome = "Resident Evil 7", Plataforma ="PC",Fotografia="res.jpg", Preco= 65},
               new Jogos  {Id=5, Nome = "Call of Duty Black OPS4", Plataforma ="PS4",Fotografia="call.jpg", Preco= 69},
-
+              new Jogos  {Id=6, Nome = "StarWars Battlefront 2", Plataforma ="PC",Fotografia="battle.jpeg", Preco= 70},
+              new Jogos  {Id=7, Nome = "NHL 19", Plataforma ="PS4",Fotografia="nhl.png", Preco= 70},
+              new Jogos  {Id=8, Nome = "Gran Turismo Sport", Plataforma ="XBOX ONE",Fotografia="gran.jpg", Preco= 60},
+              new Jogos  {Id=9, Nome = "MotoGP 19", Plataforma ="PC",Fotografia="moto.jpg", Preco= 65},
+              new Jogos  {Id=10, Nome = "Euro Truck Simulator 2", Plataforma ="PC",Fotografia="euro.jpg", Preco= 69},
+              new Jogos  {Id=11, Nome = "Crash Bandicoot CRT", Plataforma ="PS4",Fotografia="ctr.png", Preco= 69},
+              new Jogos  {Id=12, Nome = "Spider-Man", Plataforma ="PC",Fotografia="spider.png", Preco= 70},
+              new Jogos  {Id=13, Nome = "GTA V", Plataforma ="PS4",Fotografia="gta.jpg", Preco= 70},
+              new Jogos  {Id=14, Nome = "God of War 4", Plataforma ="XBOX ONE",Fotografia="god.jpg", Preco= 60},
+              new Jogos  {Id=15, Nome = "Sims 4", Plataforma ="PC",Fotografia="sims.png", Preco= 65},
+             
 
 
 
@@ -66,13 +76,7 @@ namespace GamingStore_Projectoti2.Migrations
 
             //            // ############################################################################################
             //            // adiciona Compra
-            var compras = new List<Compras> {
-                         new Compras  {Id= 1, Data = new DateTime(), Preco =70 , ClientesFK = 1},
-
-};
-
-            compras.ForEach(cc => context.Compras.Add(cc));
-            context.SaveChanges();
+         
 
 
 

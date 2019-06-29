@@ -16,9 +16,10 @@ namespace GamingStore_Projectoti2.Models
         public int Quantidade { get; set; }
 
         [Required]
+        [Display(Name = "Preço")]
         public decimal Preco { get; set; }
 
-
+        [Display(Name = "Plataforma")]
         public int PlataformasFK { get; set; }
         [ForeignKey("PlataformasFK")]
         public virtual Plataformas Plataformas { get; set; }
