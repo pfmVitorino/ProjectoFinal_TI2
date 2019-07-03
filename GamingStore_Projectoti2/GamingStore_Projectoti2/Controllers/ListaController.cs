@@ -72,7 +72,7 @@ namespace GamingStore_Projectoti2.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         // GET: Lista/buy/5
-        [Authorize(Roles = "Cliente")] // apenas os clientes têm acesso a esta página
+      //  [Authorize(Roles = "Cliente")] // apenas os clientes têm acesso a esta página
         public ActionResult Buy(int? id)
         {
             if (id == null)
@@ -90,8 +90,11 @@ namespace GamingStore_Projectoti2.Controllers
             //ViewBag.PlataformasFK = new SelectList(db.Plataformas, "Id", "Nome", jogo.Plataforma);
           
             Session["Metodo"] = "";
+           
             return View(jogo);
         }
+
+      
 
 
 

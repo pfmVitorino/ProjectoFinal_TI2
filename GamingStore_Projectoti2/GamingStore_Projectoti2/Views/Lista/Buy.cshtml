@@ -42,6 +42,6 @@
 <p>
     @Html.ActionLink("Regressar ao Início", "Index", null, new { @class = "btn btn-primary" })
   
-
-    @Html.ActionLink("Comprar Jogo", "Create", "Detalhes_Compra", null,new { @class = "btn btn-success" })
+   
+    @Html.ActionLink("Comprar Jogo", "Create", "Detalhes_Compra", new {Preco=Model.Preco,Nome=Model.Plataforma,Plataforma=Model.Plataforma},new { @class = "btn btn-success" })
 </p>

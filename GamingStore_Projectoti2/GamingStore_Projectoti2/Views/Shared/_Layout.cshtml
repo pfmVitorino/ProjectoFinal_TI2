@@ -15,60 +15,69 @@
             color: black;
         }
     </style>
-        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: black">
-            <div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: black">
+        <div class="container">
 
 
-                <ul class="nav navbar-nav" >
-                    <li class="nav-link" >@Html.ActionLink("Página Inicial", "Index", "Home") </li>
+            <ul class="nav navbar-nav">
+                <li class="nav-link">@Html.ActionLink("Página Inicial", "Index", "Home") </li>
 
 
+                @if (User.IsInRole("Cliente") || User.IsInRole("Gestor") || User.IsInRole("Admin"))
+                {
 
+
+                }
+                else
+                {
                     <li class="nav-link"> @Html.ActionLink("Registar", "Register", "Account")</li>
                     <li class="nav-link"> @Html.ActionLink("Log in", "Login", "Account")</li>
+                }
 
 
-                    <!--Apenas Clientes podem ter acesso ao carrinho  -->
-                    @if (User.IsInRole("Cliente"))
+
+
+                <!--Apenas Clientes podem ter acesso ao carrinho  -->
+                @if (User.IsInRole("Cliente"))
                 {
-                    <li><a href="#shop"><span class="glyphicon glyphicon-shopping-cart">Carrinho</span></a></li>
-            }
-                    <!--Apenas o Admin pode ter acesso a esta página  -->
-                    @if (User.IsInRole("Admin"))
+                    <li> @Html.ActionLink("Carrinho🛒", "Index", "Detalhes_Compra")</li>
+                }
+                <!--Apenas o Admin pode ter acesso a esta página  -->
+                @if (User.IsInRole("Admin"))
                 {
                     <li> @Html.ActionLink("Administração", "Index", "ApplicationUsers")</li>
-            }
+                }
 
-                    <!--Apenas o Gestor pode ter acesso a esta página  -->
-                    @if (User.IsInRole("Gestor"))
+                <!--Apenas o Gestor pode ter acesso a esta página  -->
+                @if (User.IsInRole("Gestor"))
                 {
                     <li> @Html.ActionLink("Gestão", "Index", "Jogos")</li>
-            }
-                    
-                </ul>
-                <div class="navbar-collapse collapse">
+                }
+
+            </ul>
+            <div class="navbar-collapse collapse">
 
 
-                    @Html.Partial("_LoginPartial")
-                </div>
-
-
+                @Html.Partial("_LoginPartial")
             </div>
+
 
         </div>
 
+    </div>
 
 
 
 
 
 
-        @RenderBody()
+
+    @RenderBody()
 
 
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
-        </html>
+</html>

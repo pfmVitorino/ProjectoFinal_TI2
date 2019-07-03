@@ -20,7 +20,7 @@ namespace GamingStore_Projectoti2.Models
        
         public string NIF { get; set; }
 
-        
+        [Display(Name = "Código Postal")]
         public string CodPostal { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

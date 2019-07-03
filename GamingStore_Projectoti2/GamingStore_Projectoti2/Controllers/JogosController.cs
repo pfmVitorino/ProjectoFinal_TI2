@@ -40,7 +40,7 @@ namespace GamingStore_Projectoti2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Jogos jogo = db.Jogos.Find(id);
             if (jogo == null)
@@ -177,7 +177,7 @@ namespace GamingStore_Projectoti2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                 return RedirectToAction("Index"); 
             }
             Jogos jogo = db.Jogos.Find(id);
             if (jogo == null)

@@ -10,7 +10,7 @@ using GamingStore_Projectoti2.Models;
 
 namespace GamingStore_Projectoti2.Controllers
 {
-    [Authorize(Roles = "Cliente")] // apenas clientes têm acesso a esta página
+   // [Authorize(Roles = "Cliente")] // apenas clientes têm acesso a esta página
     public class Detalhes_CompraController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -18,9 +18,9 @@ namespace GamingStore_Projectoti2.Controllers
         // GET: Detalhes_Compra
         public ActionResult Index()
         {
-           
-
+            
             var detalhes_Compra = db.Detalhes_Compra.Include(d => d.Compras).Include(d => d.Jogos).Include(d => d.Plataformas);
+
             return View(detalhes_Compra.ToList());
         }
 
@@ -42,11 +42,18 @@ namespace GamingStore_Projectoti2.Controllers
         // GET: Detalhes_Compra/Create
         public ActionResult Create()
         {
+            //var jogoComprar = db.Jogos.Include(d => d.Nome).Include(d => d.Preco).Include(d => d.Plataforma);
 
-           
+            //ViewBag.Jogos = new SelectList(db.Jogos, "Id", "Nome");
+            //ViewBag.Jogos = new SelectList(db.Jogos, "Id", "Preco");
+            //ViewBag.Jogos = new SelectList(db.Jogos, "Id", "Plataforma");
+
+          
+
             ViewBag.ComprasFK = new SelectList(db.Compras, "Id", "Id");
             ViewBag.JogosFK = new SelectList(db.Jogos, "Id", "Nome");
             ViewBag.PlataformasFK = new SelectList(db.Plataformas, "Id", "Nome");
+
             return View();
         }
 

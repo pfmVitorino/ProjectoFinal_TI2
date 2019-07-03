@@ -9,10 +9,12 @@ namespace GamingStore_Projectoti2.Models
 {
     public class Detalhes_Compra
     {
+        
         [Key]
         public int Id { get; set; }
 
         [Required]
+
         public int Quantidade { get; set; }
 
         [Required]
@@ -35,5 +37,6 @@ namespace GamingStore_Projectoti2.Models
         public virtual Compras Compras { get; set; }
 
 
-    }
+    } 
+    
 }
